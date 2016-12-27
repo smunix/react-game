@@ -1,0 +1,68 @@
+# This YAML file describes your package. Stack will automatically generate a
+# Cabal file when you run `stack build`. See the hpack website for help with
+# this file: <https://github.com/sol/hpack>.
+benchmarks:
+  react-game-benchmarks:
+    dependencies:
+    - base
+    - react-game
+    - criterion
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    main: Main.hs
+    source-dirs: benchmark
+category: Other
+description: react-game is a new reactive game play.
+executables:
+  react-game:
+    dependencies:
+    - base
+    - GLFW-b
+    - StateVar
+    - OpenGL
+    - netwire
+    - react-game
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    main: Main.hs
+    source-dirs: executable
+extra-source-files:
+- CHANGELOG.md
+- LICENSE.md
+- package.yaml
+- README.md
+- stack.yaml
+ghc-options: -Wall
+github: smunix/react-game
+library:
+  exposed-modules:
+  - Input
+  dependencies:
+  - base
+  - netwire
+  - GLFW-b
+  - mtl
+  - transformers
+  source-dirs: library
+license: MIT
+maintainer: Providence Salumu
+name: react-game
+synopsis: A new reactive game play.
+tests:
+  react-game-test-suite:
+    dependencies:
+    - base
+    - react-game
+    - tasty
+    - tasty-hspec
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    main: Main.hs
+    source-dirs: test-suite
+version: '0.0.1'
